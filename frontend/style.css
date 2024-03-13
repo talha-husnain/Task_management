@@ -1,0 +1,179 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  color: #fff;
+}
+
+header {
+  background-color: #004d7a;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+main {
+  padding: 20px;
+  background: #ffffff10;
+  margin: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#task-form input[type='text'] {
+  padding: 10px;
+  width: 70%;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+#task-form input[type='text']:focus {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transform: scale(1.02);
+}
+
+#task-form button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#task-form button:hover {
+  background-color: #0056b3;
+}
+
+#task-list li {
+  list-style: none;
+  padding: 10px;
+  background-color: #ffffff20;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#task-list li {
+  display: flex;
+  justify-content: space-between; /* Distribute space between items */
+  align-items: center; /* Center items vertically */
+  padding: 10px;
+  background-color: #ffffff20;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+#task-list li > span {
+  flex-grow: 1; /* Allows the task text to grow and fill the space */
+  margin-right: 10px; /* Keeps some space between the text and the buttons */
+}
+
+#task-list li > .task-date-time {
+  flex-shrink: 0; /* Prevents the date from shrinking */
+  margin-right: 10px;
+}
+
+#task-list li > button {
+  flex-shrink: 0; /* Prevents the buttons from shrinking */
+  margin-left: 5px; /* Adds space between buttons */
+}
+
+#task-list li button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#task-list li .delete-task {
+  background-color: #84252d;
+  color: white;
+}
+
+#task-list li .complete-task {
+  background-color: #1e6e3f;
+  color: white;
+}
+
+#task-list li .delete-task:hover {
+  background-color: #bc0924;
+}
+
+#task-list li .complete-task:hover {
+  background-color: #06c358;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+footer {
+  background-color: #002f4b;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+/* Add to your existing styles */
+
+.task-date-time {
+  font-size: 0.8em;
+  color: #ddd;
+  margin-left: 10px;
+}
+
+#task-list li button {
+  margin-left: 5px;
+}
+.edit-input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: none; /* Initially hidden */
+  flex-grow: 1; /* Same as the task text span */
+  margin-right: 10px; /* Keep some space between the input and the buttons */
+}
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #ffffff20;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  border: 1px solid transparent; /* For a smooth transition to a new border color */
+  cursor: pointer;
+}
+
+.task-item:hover {
+  background-color: #ffffff40; /* Lightens the background on hover */
+  transform: translateY(-2px); /* Lifts the task item up a bit */
+  border-color: #ddd; /* Adds a subtle border highlight */
+}
+
+/* You might want to exclude the pointer-events and hover effects on the task item
+   if it's being edited to avoid confusion */
+.task-item.being-edited {
+  cursor: default;
+  pointer-events: none;
+}
+
+.task-item.being-edited:hover {
+  background-color: #ffffff20; /* Reverts the background to the original */
+  transform: none; /* Removes lifting effect */
+  border-color: transparent; /* Hides the border highlight */
+}
