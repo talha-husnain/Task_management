@@ -2,22 +2,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('task-form');
   const taskList = document.getElementById('task-list');
 
-  // Function to toggle task editing state
   function toggleEditState(taskLi, taskIndex) {
     const editInput = taskLi.querySelector('.edit-input');
     const taskSpan = taskLi.querySelector('span');
     const editBtn = taskLi.querySelector('.edit-task');
     const isEditing = editBtn.textContent === 'Edit';
     if (isEditing) {
-      // taskLi.classList.add('being-edited');
-
       editInput.value = taskSpan.textContent;
       editInput.style.display = 'block';
       taskSpan.style.display = 'none';
       editBtn.textContent = 'Save';
     } else {
-      // taskLi.classList.remove('being-edited');
-
       tasks[taskIndex].text = editInput.value;
       taskSpan.textContent = editInput.value;
       editInput.style.display = 'none';
@@ -27,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Load tasks from local storage
   let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
   tasks.forEach((task, index) => {
     if (task.text.trim() !== '') {
