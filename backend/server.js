@@ -7,7 +7,8 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 // Serve static files from the "public" directory
-app.use(express.static('frontend'));
+// app.use(express.static('frontend'));
+app.use(express.static('../frontend'));
 
 // Connect to the SQLite database
 // For a persistent database, replace ':memory:' with a file path
@@ -27,13 +28,16 @@ db.serialize(() => {
 
 // Endpoint to insert a new task
 app.post('/tasks', (req, res) => {
+  console.log('POST /tasks received:', req.body); // Log incoming request data
   const { text, completed, dateTime } = req.body;
   const query =
     'INSERT INTO tasks (text, completed, dateTime) VALUES (?, ?, ?)';
   db.run(query, [text, completed, dateTime], function (err) {
     if (err) {
+      console.error('Database error:', err.message); // Log any errors
       return res.status(500).json({ error: err.message });
     }
+    console.log(`Task added with ID: ${this.lastID}`); // Confirm task addition
     res.status(201).json({ id: this.lastID });
   });
 });
