@@ -2,22 +2,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('task-form');
   const taskList = document.getElementById('task-list');
 
-  // Function to retrieve and display tasks from the database
   function fetchTasks() {
     fetch('/tasks')
       .then((response) => response.json())
       .then((data) => {
-        taskList.innerHTML = ''; // Clear the list before adding new tasks
+        taskList.innerHTML = '';
         data.tasks.forEach((task) => {
           // addTaskToList(task.text, task.completed, task.dateTime, task.id);
-          const isCompleted = !!task.completed; // Convert to boolean if needed, though it might already be implicit
+          const isCompleted = !!task.completed;
           addTaskToList(task.text, isCompleted, task.dateTime, task.id);
         });
       })
       .catch((error) => console.error('Error:', error));
   }
 
-  // Function to add a task to the DOM
   function addTaskToList(taskText, completed, dateTime, id) {
     const li = document.createElement('li');
     li.className = 'task-item';
@@ -61,14 +59,13 @@ document.addEventListener('DOMContentLoaded', () => {
     taskList.appendChild(li);
   }
 
-  // Load tasks from the database when the page is loaded
   fetchTasks();
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const taskInput = document.getElementById('task-input');
     const taskText = taskInput.value.trim();
-    const dateTime = new Date().toISOString(); // ISO string for consistency
+    const dateTime = new Date().toISOString();
 
     if (taskText) {
       fetch('/tasks', {
@@ -85,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then((response) => response.json())
         .then((data) => {
           addTaskToList(taskText, false, dateTime, data.id);
-          taskInput.value = ''; // Clear input field
+          taskInput.value = '';
         })
         .catch((error) => console.error('Error:', error));
     }
@@ -148,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         body: JSON.stringify({
           text: taskContent.textContent,
-          completed: completed ? false : true, // Explicitly toggle the boolean value
+          completed: completed ? false : true,
           dateTime: li.querySelector('.task-date-time').textContent,
         }),
       })

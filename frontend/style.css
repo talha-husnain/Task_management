@@ -3,7 +3,7 @@ html {
   margin: 0;
   padding: 0;
   font-family: 'Arial', sans-serif;
-  background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  background: linear-gradient(to right, #064f67 0%, #0fabfa 100%);
   color: #fff;
 }
 
@@ -42,7 +42,7 @@ main {
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  background-color: #007bff;
+  background-color: #04294f;
   color: white;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -64,27 +64,27 @@ main {
 }
 #task-list li {
   display: flex;
-  justify-content: space-between; /* Distribute space between items */
-  align-items: center; /* Center items vertically */
+  justify-content: space-between;
+  align-items: center;
   padding: 10px;
-  background-color: #ffffff20;
+  background-color: #033c76;
   margin-bottom: 5px;
   border-radius: 5px;
 }
 
 #task-list li > span {
-  flex-grow: 1; /* Allows the task text to grow and fill the space */
-  margin-right: 10px; /* Keeps some space between the text and the buttons */
+  flex-grow: 1;
+  margin-right: 10px;
 }
 
 #task-list li > .task-date-time {
-  flex-shrink: 0; /* Prevents the date from shrinking */
+  flex-shrink: 0;
   margin-right: 10px;
 }
 
 #task-list li > button {
-  flex-shrink: 0; /* Prevents the buttons from shrinking */
-  margin-left: 5px; /* Adds space between buttons */
+  flex-shrink: 0;
+  margin-left: 5px;
 }
 
 #task-list li button {
@@ -127,7 +127,6 @@ footer {
   bottom: 0;
   width: 100%;
 }
-/* Add to your existing styles */
 
 .task-date-time {
   font-size: 0.8em;
@@ -143,8 +142,8 @@ footer {
   border: 1px solid #ccc;
   border-radius: 5px;
   display: none; /* Initially hidden */
-  flex-grow: 1; /* Same as the task text span */
-  margin-right: 10px; /* Keep some space between the input and the buttons */
+  flex-grow: 1;
+  margin-right: 10px;
 }
 .task-item {
   display: flex;
@@ -155,25 +154,23 @@ footer {
   margin-bottom: 5px;
   border-radius: 5px;
   transition: background-color 0.3s ease, transform 0.3s ease;
-  border: 1px solid transparent; /* For a smooth transition to a new border color */
+  border: 1px solid transparent;
   cursor: pointer;
 }
 
 .task-item:hover {
-  background-color: #ffffff40; /* Lightens the background on hover */
-  transform: translateY(-2px); /* Lifts the task item up a bit */
-  border-color: #ddd; /* Adds a subtle border highlight */
+  background-color: #ffffff40;
+  transform: translateY(-2px);
+  border-color: #ddd;
 }
 
-/* You might want to exclude the pointer-events and hover effects on the task item
-   if it's being edited to avoid confusion */
 .task-item.being-edited {
   cursor: default;
   pointer-events: none;
 }
 
 .task-item.being-edited:hover {
-  background-color: #ffffff20; /* Reverts the background to the original */
-  transform: none; /* Removes lifting effect */
-  border-color: transparent; /* Hides the border highlight */
+  background-color: #ffffff20;
+  transform: none;
+  border-color: transparent;
 }
