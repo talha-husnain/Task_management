@@ -1,0 +1,32 @@
+# Task Management Application
+
+This is a full-stack web application for managing tasks. It allows users to add, edit, delete, and mark tasks as complete.
+
+## Features
+
+- Add new tasks to the list.
+- Edit existing tasks.
+- Delete tasks from the list.
+- Mark tasks as complete or incomplete.
+- Data persistence through SQLite.
+
+## Technologies Used
+
+- Node.js: The runtime environment for the backend.
+- Express.js: The web application framework for Node.js.
+- SQLite: The database engine used for storing tasks.
+- HTML/CSS/JavaScript: Used for the frontend.
+
+## Getting Started
+
+### Prerequisites
+
+Make sure you have Node.js installed on your system. You can download it from [nodejs.org](https://nodejs.org/).
+
+### Installation
+
+1. Clone the repository to your local machine:
+
+```sh
+git clone https://github.com/talha-husnain/Task_management.git
+cd Task_management
